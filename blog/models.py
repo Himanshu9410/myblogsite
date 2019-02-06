@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 
+# My post model class for creating a table.
 class Post(models.Model):
     STATUS_CHOICES = [
         ('draft', 'Draft'),
@@ -21,7 +22,7 @@ class Post(models.Model):
                               default='published')
 
     class Meta:
-        ordering = ('-publish', )
+        ordering = ('-publish', )  # For reverse order.
 
     def __str__(self):
-        return self.title
+        return self.title  # Return user understandable format of object.
