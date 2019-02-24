@@ -1,0 +1,28 @@
+{% extends 'login_base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+    <div class="card-body">
+        <h6 class="card-title">
+            {% if form.errors %}
+                Your profile name and password are wrong.
+            <small>Please try again.</small>
+            {% else %}
+                Fill your profile name and password.
+            {% endif %}
+        </h6>
+    <form action="." method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            {{ field.errors }}
+            <br>{{ field.label_tag }}<br>{{ field }}
+        {% endfor %}
+        <input type="hidden" name="next" value="{{ next }}"><br><br>
+        <input type="submit" value="Login">
+    </form><br><br>
+    <a href="{% url 'account:password_reset' %}" class="btn btn-primary">Forgot password</a>
+    </div>
+
+{% endblock %}

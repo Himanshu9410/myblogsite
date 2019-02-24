@@ -15,7 +15,7 @@
 <body>
 <!-- navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="{% url 'blog:post_list' %}">IMirror</a>
+      <a class="navbar-brand" href="{% url 'blog:post_list' %}">INDIANS<small>talk</small></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -28,11 +28,20 @@
            <li class="nav-item">
             <a class="nav-link" href="{% url 'blog:post_search' %}">Search</a>
           </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'account:password_change' %}">Reset password</a>
+          </li>
         </ul>
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  {{ request.user.first_name }}, <a href="{% url 'account:logout' %}">logout</a>
+              </li>
+          </ul>
+
       </div>
     </nav>
 
-    <h1 class="project-title">India Mirror</h1>
+<center><img src="{% static 'images/it.png' %}" alt='logo'></center>
 
     <div class="container">
         <div class="row">
@@ -73,13 +82,13 @@
     </div>
 
     <!-- Footer -->
-<footer class="page-footer green">
+<footer class="page-footer footer_color">
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3 text text-light">© 2018 Copyright:
       <a href="http://127.0.0.1:8000/blog/" class="text text-light"> IMirror.com</a>
     </div>
     <!-- Copyright -->
-  </footer>
+</footer>
   <!-- Footer -->
 
     <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>

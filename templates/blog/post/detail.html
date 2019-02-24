@@ -1,4 +1,4 @@
-{% extends "blog/base.html" %}
+{% extends "base.html" %}
 
 {% block title %}{{ post.title }}{% endblock %}
 
@@ -9,6 +9,8 @@
                 </div>
                 <div class="card-body">
                     <div class="card-text">
+
+{% block con
                         <p class="date">
                             Published {{ post.publish }} by {{ post.author }}
                         </p>

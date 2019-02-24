@@ -20,13 +20,14 @@ SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
+    'account.apps.AccountConfig',
+    'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog.apps.BlogConfig',
     'taggit',
     'django.contrib.sites',
     'django.contrib.sitemaps',
@@ -48,7 +49,7 @@ ROOT_URLCONF = 'myblogsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [(os.path.join(BASE_DIR, 'templates')), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,11 +116,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 STATIC_URL = '/static/'
 
-
+# Email settings
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'himanshu.rana.9410@gmail.com'
 EMAIL_HOST_PASSWORD = 'newspaper123@'
 EMAIL_POST = 587
 EMAIL_USE_TLS = True
+
+# Handle account login/logout url
+LOGIN_REDIRECT_URL = 'blog:post_list'
+LOGIN_URL = 'account:login'
+LOGOUT_URL = 'account:logout'

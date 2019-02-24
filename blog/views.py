@@ -6,8 +6,10 @@ from django.core.mail import send_mail
 from taggit.models import Tag
 from django.db.models import Count
 from django.contrib.postgres.search import SearchVector, SearchRank, SearchQuery
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def post_list(request, tag_slug=None):
     posts = Post.published.all()  # Retrieve all publish status objects.
     tag = None
