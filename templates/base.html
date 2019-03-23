@@ -31,13 +31,15 @@
             <li class="nav-item">
             <a class="nav-link" href="{% url 'account:password_change' %}">Reset password</a>
           </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'account:edit' %}">Profile</a>
+          </li>
         </ul>
           <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                  {{ request.user.first_name }}, <a href="{% url 'account:logout' %}">logout</a>
+                  Hello {{ request.user.first_name }}, <a href="{% url 'account:logout' %}">logout</a>
               </li>
           </ul>
-
       </div>
     </nav>
 

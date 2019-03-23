@@ -134,3 +134,8 @@ EMAIL_USE_TLS = True
 LOGIN_REDIRECT_URL = 'blog:post_list'
 LOGIN_URL = 'account:login'
 LOGOUT_URL = 'account:logout'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
